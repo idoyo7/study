@@ -1,0 +1,10 @@
+{
+  "title": "나의 GitBook",
+  "styles": {
+    "website": "styles/dark-mode.css"
+  },
+  "scripts": ["scripts/dark-mode.js"],
+  "plugins": [],
+  "pluginsConfig": {}
+}
+
