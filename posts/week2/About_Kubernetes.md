@@ -95,7 +95,7 @@ API 서버를 중심으로 상호작용하며, etcd에 기록된 상태 정보�
         - 쿠버네티스 API 서버로 들어오는 요청을 사전 검증/변환/거부하기 위한 플러그인 구조체.
             - **Validating Admission Controller**: 리소스가 특정 규칙에 맞는지 확인하고, 위배 시 요청 거부.
             - **Mutating Admission Controller**: 리소스를 동적으로 변환(레이블 추가, sidecar 삽입 등).
-        - **AppArmor, Linux Capabilities 등 호스트 수준 보안 강화**
+    - **AppArmor, Linux Capabilities 등 호스트 수준 보안 강화**
         - **AppArmor**: 파드 내 컨테이너 프로세스에 대해 추가적인 보안 프로파일을 적용해 파일 접근, 네트워크 사용 등을 제한.
         - **Linux Capabilities**: 컨테이너 런타임 수준에서 필요한 최소한의 권한만 할당해, 불필요한 루트 권한이나 시스템 콜 사용을 억제.
 
@@ -104,7 +104,7 @@ API 서버를 중심으로 상호작용하며, etcd에 기록된 상태 정보�
     - CPU, 메모리 외에도 HugePage나 GPU, FPGA 같은 특수 하드웨어 리소스를 Device Plugin을 통해 노출하고 관리 가능.
     - 이를 통해 쿠버네티스는 단순 컨테이너 오케스트레이션을 넘어, 다양한 워크로드(데이터베이스, 머신러닝, 고성능 연산 등)에 최적화된 플랫폼으로 발전할 수 있음.
 
-- **다양한 오픈소스 생태계 및 확장성**
+#### **다양한 오픈소스 생태계 및 확장성**
     - Helm을 통한 패키지 관리로 복잡한 애플리케이션 스택을 쉽게 배포하고 업그레이드 가능.
     - CNI(Container Network Interface), CSI(Container Storage Interface) 같은 표준 인터페이스 덕분에 다양한 네트워크 및 스토리지 플러그인을 손쉽게 연동할 수 있으며, ISTIO와 같은 서비스 메쉬(Service Mesh)나 Calico, Cilium 등의 네트워크 플러그인을 통해 고도의 네트워킹 정책 구현 가능.
     - KEDA, Argo CD, Prometheus, Vault 등 수많은 CNCF 및 오픈소스 프로젝트와 자연스럽게 연계되어 DevOps, Observability, 보안 강화, Secret 관리 등 다양한 운영 영역을 확장 가능.
