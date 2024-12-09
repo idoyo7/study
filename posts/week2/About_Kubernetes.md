@@ -43,7 +43,7 @@ API 서버를 중심으로 상호작용하며, etcd에 기록된 상태 정보�
 
 ### CRI(Container Runtime Interface)
 
-![crio.png](images/rio.png)
+![crio.png](images/crio.png)
 
 - **등장 배경**: 초기에는 Docker 등 특정 런타임에 종속적이었으나, 다양한 런타임(containerd, CRI-O)을 유연하게 수용할 필요성 대두.
 
