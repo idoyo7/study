@@ -43,7 +43,7 @@ API 서버를 중심으로 상호작용하며, etcd에 기록된 상태 정보�
 
 - 자원 통합 : 컨테이너, 네트워킹, 스토리지, 보안, 설정 관리, 노드 자원 등을 API로 추상화
     
-    ![image.png](image.png)
+    ![image.png](images/image.png)
     
 - **선언적 배포(Declarative Deployment)**: 원하는 상태(Desired State)를 YAML 등으로 정의하면, 쿠버네티스가 이를 만족하도록 자동 조정.
 - **자동화된 스케일링(Auto Scaling)**: CPU, 메모리 사용량 기반의 Horizontal Pod Autoscaler를 통해 자원 사용량에 따라 파드를 자동으로 증가(Horizontal Pod Autoscaler) 또는 감소.
@@ -79,6 +79,6 @@ API 서버를 중심으로 상호작용하며, etcd에 기록된 상태 정보�
     - CNI(Container Network Interface), CSI(Container Storage Interface) 같은 표준 인터페이스 덕분에 다양한 네트워크 및 스토리지 플러그인을 손쉽게 연동할 수 있으며, ISTIO와 같은 서비스 메쉬(Service Mesh)나 Calico, Cilium 등의 네트워크 플러그인을 통해 고도의 네트워킹 정책 구현 가능.
     - KEDA, Argo CD, Prometheus, Vault 등 수많은 CNCF 및 오픈소스 프로젝트와 자연스럽게 연계되어 DevOps, Observability, 보안 강화, Secret 관리 등 다양한 운영 영역을 확장 가능.
 
-![[https://landscape.cncf.io/](https://landscape.cncf.io/)](image1.png)
+![[https://landscape.cncf.io/](https://landscape.cncf.io/)](images/image1.png)
 
 [https://landscape.cncf.io/](https://landscape.cncf.io/)

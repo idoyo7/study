@@ -25,7 +25,7 @@
 
 컨테이너는 VM보다 공간을 적게 차지하고(컨테이너 이미지는 일반적으로 수십 MB 크기임), 더 많은 애플리케이션을 처리할 수 있으며 더 적은 VM과 운영 체제가 필요합니다.
 
-![image.png](image.png)
+![image.png](images/image.png)
 
 [https://www.docker.com/resources/what-container/](https://www.docker.com/resources/what-container/)
 
@@ -51,7 +51,7 @@
 
 ## **리눅스 컨테이너(LXC)와 도커(Docker) 등장**:
 
-![[https://en.wikipedia.org/wiki/Docker_(software)](https://en.wikipedia.org/wiki/Docker_(software))](image1.png)
+![[https://en.wikipedia.org/wiki/Docker_(software)](https://en.wikipedia.org/wiki/Docker_(software))](images/image1.png)
 
 [https://en.wikipedia.org/wiki/Docker_(software)](https://en.wikipedia.org/wiki/Docker_(software))
 
@@ -61,19 +61,19 @@
 
 ## **OCI(Open Container Initiative) 표준화**
 
-![[https://naleejang.tistory.com/228](https://naleejang.tistory.com/228)](image2.png)
+![[https://naleejang.tistory.com/228](https://naleejang.tistory.com/228)](images/image2.png)
 
 [https://naleejang.tistory.com/228](https://naleejang.tistory.com/228)
 
 - Docker 독자 규격에서 벗어나 **OCI 이미지 스펙 및 런타임 스펙**이 등장.
 
-![[https://www.samsungsds.com/kr/insights/docker.html](https://www.samsungsds.com/kr/insights/docker.html)](image3.png)
+![[https://www.samsungsds.com/kr/insights/docker.html](https://www.samsungsds.com/kr/insights/docker.html)](images/image3.png)
 
 [https://www.samsungsds.com/kr/insights/docker.html](https://www.samsungsds.com/kr/insights/docker.html)
 
 - 이를 통해 `containerd`, `CRI-O` 등 다양한 런타임이 표준 인터페이스를 기반으로 상호호환성을 확보.
 
-![image.png](image4.png)
+![image.png](images/image4.png)
 
 - OCI github : [https://github.com/opencontainers](https://github.com/opencontainers)
 - image-spec : [https://github.com/opencontainers/image-spec/blob/main/spec.md](https://github.com/opencontainers/image-spec/blob/main/spec.md)
@@ -88,7 +88,7 @@
 - **Containerd**: Docker 런타임을 분리한 컨테이너 런타임. 경량화되고 Kubernetes CRI(Container Runtime Interface)와 호환성이 좋음.
 - **CRI-O**: Kubernetes 전용으로 개발된 런타임. Open Container Initiative(OCI) 규격을 따르는 이미지 및 런타임과 쉽게 연동.
 
-### 이미지(Image)의 구성
+### 이미지(images/image)의 구성
 
 - 컨테이너는 특정 애플리케이션을 실행하기 위한 패키지입니다.
 - Docker 이미지는 "컨테이너를 만들기 위한 청사진"으로, 애플리케이션 실행에 필요한 코드, 라이브러리, 설정을 모두 포함합니다.
@@ -97,7 +97,7 @@
 
 ### 레이어(Layer)란?
 
-![[https://www.springcloud.io/post/2022-02/docker-layer-spring-boot/#gsc.tab=0](https://www.springcloud.io/post/2022-02/docker-layer-spring-boot/#gsc.tab=0)](image5.png)
+![[https://www.springcloud.io/post/2022-02/docker-layer-spring-boot/#gsc.tab=0](https://www.springcloud.io/post/2022-02/docker-layer-spring-boot/#gsc.tab=0)](images/image5.png)
 
 [https://www.springcloud.io/post/2022-02/docker-layer-spring-boot/#gsc.tab=0](https://www.springcloud.io/post/2022-02/docker-layer-spring-boot/#gsc.tab=0)
 
