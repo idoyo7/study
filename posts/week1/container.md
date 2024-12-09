@@ -67,10 +67,6 @@
 
 - Docker 독자 규격에서 벗어나 **OCI 이미지 스펙 및 런타임 스펙**이 등장.
 
-![[https://www.samsungsds.com/kr/insights/docker.html](https://www.samsungsds.com/kr/insights/docker.html)](images/image3.png)
-
-[https://www.samsungsds.com/kr/insights/docker.html](https://www.samsungsds.com/kr/insights/docker.html)
-
 - 이를 통해 `containerd`, `CRI-O` 등 다양한 런타임이 표준 인터페이스를 기반으로 상호호환성을 확보.
 
 ![image.png](images/image4.png)
