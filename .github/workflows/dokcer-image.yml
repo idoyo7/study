@@ -29,11 +29,13 @@ jobs:
         run: echo "SHORT_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
 
       - name: Build and push Docker image
+        id: build-push
         run: |
           docker build -t "art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}" .
           docker push "art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}"
 
       - name: Checkout 'study-manifests' repository
+        if: success() # 이전 단계가 성공한 경우에만 실행
         uses: actions/checkout@v3
         with:
           repository: idoyo7/study-manifests
@@ -41,11 +43,13 @@ jobs:
           path: study-manifests
 
       - name: Update manifest files
+        if: success() # 이전 단계가 성공한 경우에만 실행
         run: |
           cd study-manifests
           sed -i 's|image:.*|image: art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}|' deployment.yaml
 
       - name: Commit and push changes to 'study-manifests'
+        if: success() # 이전 단계가 성공한 경우에만 실행
         run: |
           cd study-manifests
           git config user.name "${{ github.actor }}"

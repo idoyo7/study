@@ -6,13 +6,13 @@ WORKDIR /app
 # 필요한 의존성 설치
 RUN apk add --no-cache python3 make g++
 
-# 의존성 설치 및 빌드
-COPY package*.json ./
-RUN npm install
-
-# HonKit 설치 및 빌드
+# HonKit 설치
 RUN npm install -g honkit
+
+# 프로젝트 소스 복사
 COPY . .
+
+# HonKit 빌드
 RUN honkit build
 
 # 2단계: 최종 실행 스테이지
@@ -22,6 +22,9 @@ WORKDIR /app
 
 # 빌드 결과물만 복사
 COPY --from=builder /app/_book /app/_book
+
+# 정적 파일 제공에 필요한 serve 설치
+RUN npm install -g serve
 
 # 포트 설정
 EXPOSE 4000
