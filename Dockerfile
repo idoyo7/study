@@ -1,21 +1,31 @@
-# Node.js 최신 LTS 버전의 가벼운 Alpine 이미지를 사용합니다.
-FROM node:18-alpine
+# 1단계: 빌드 스테이지
+FROM node:18-alpine AS builder
 
-# 작업 디렉토리를 설정합니다.
 WORKDIR /app
 
-# 빌드 필수 도구 설치 (필요시)
+# 필요한 의존성 설치
 RUN apk add --no-cache python3 make g++
 
-# HonKit을 글로벌로 설치합니다.
-RUN npm install -g honkit
+# 의존성 설치 및 빌드
+COPY package*.json ./
+RUN npm install
 
-# 현재 디렉토리의 내용을 컨테이너로 복사합니다.
+# HonKit 설치 및 빌드
+RUN npm install -g honkit
 COPY . .
+RUN honkit build
+
+# 2단계: 최종 실행 스테이지
+FROM node:18-alpine
+
+WORKDIR /app
+
+# 빌드 결과물만 복사
+COPY --from=builder /app/_book /app/_book
 
 # 포트 설정
 EXPOSE 4000
 
-# GitBook을 빌드하고 서버를 실행합니다.
-CMD ["honkit", "serve"]
+# 정적 파일 제공
+CMD ["npx", "serve", "/app/_book"]
 
