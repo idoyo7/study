@@ -5,6 +5,10 @@
   },
   "scripts": ["scripts/dark-mode.js"],
   "plugins": [],
-  "pluginsConfig": {}
+  "pluginsConfig": {
+    "theme-default": {
+      "showFooter": false
+    }
+  }
 }
 
