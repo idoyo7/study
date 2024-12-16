@@ -43,7 +43,7 @@ jobs:
       - name: Update manifest files
         run: |
           cd study-manifests
-          sed -i 's|image:.*|image: art.montkim.com/public/my-gitbook:${{ env.SHORT_SHA }}|' deployment.yaml
+          sed -i 's|image:.*|image: art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}|' deployment.yaml
 
       - name: Commit and push changes to 'study-manifests'
         run: |
