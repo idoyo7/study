@@ -30,8 +30,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t "art.montkim.com/public/my-gitbook:${{ env.SHORT_SHA }}" .
-          docker push "art.montkim.com/public/my-gitbook:${{ env.SHORT_SHA }}"
+          docker build -t "art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}" .
+          docker push "art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}"
 
       - name: Checkout 'study-manifests' repository
         uses: actions/checkout@v3
