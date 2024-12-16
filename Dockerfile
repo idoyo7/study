@@ -6,8 +6,10 @@ WORKDIR /app
 # 필요한 의존성 설치
 RUN apk add --no-cache python3 make g++
 
-# HonKit 설치
+# HonKit 및 플러그인 설치
 RUN npm install -g honkit
+RUN npm install -g honkit gitbook-plugin-customize-footer
+RUN npm install gitbook-plugin-customize-footer --save
 
 # 프로젝트 소스 복사
 COPY . .

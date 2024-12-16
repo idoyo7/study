@@ -4,10 +4,10 @@
     "website": "styles/dark-mode.css"
   },
   "scripts": ["scripts/dark-mode.js"],
-  "plugins": [],
+  "plugins": ["customize-footer"],
   "pluginsConfig": {
-    "theme-default": {
-      "showFooter": false
+    "customize-footer": {
+      "footer": ""
     }
   }
 }
