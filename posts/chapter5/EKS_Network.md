@@ -1,3 +1,9 @@
+# Network On Kubernetes
+
+쿠버네티스에서 사용하는 Network 표준인 CNI와
+AWS에서 제공하는 CNI인 AWS VCP CNI에 대해 학습합니다.
+
+---
 
 ### 네트워크
 
@@ -89,7 +95,8 @@ NodePort는 pod가 할당되어있는 node의 특정 포트를 open하여 외부
 아무 노드에 해당 NodePort로 던져도, 실제 Service 뒤에 연결된 Pod 까지 요청이 도달합니다!
 그치만, 실제 pod가 배포되어있지 않은 노드로 네트워크 요청을 하게되면 실제 pod가 있는 노드에 요청을 재차 하는 방식으로 구성되어있어 추가 hop이 발생 될 수 있습니다.
 
-예시) 노드 2에 어플리케이션이 배포되어있음.
+예시) 노드 2에만 어플리케이션이 배포되어있다면?
+
 ```
 graph LR
     Client[Client]

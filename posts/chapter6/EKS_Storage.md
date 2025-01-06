@@ -1,4 +1,8 @@
+# Storage On Kubernetes
 
+쿠버네티스에서 사용하는 Storage 표준과 AWS에서 제공하는 Storage 유형들을 학습합니다.
+
+---
 
 컨테이너는 종료되면 안에있던 파일 스토리지가 증발하는 ephemeral 한 스토리지를 갖고있습니다.
 
