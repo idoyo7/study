@@ -150,6 +150,8 @@ spec:
 위에서 생성한 ebs-claim이라는 pvc의 정보에 맞는 볼륨을 마운트하면 된다는 의미인데, 실제로 생성된 pv 정보를 직접 어플리케이션 배포 코드에서 다루지 않고있습니다.
 
 ![image](https://i.namu.wiki/i/XDVrtVbJXtd059R9AP5CZlgU20ADGGN5tgzuT30Fj393vb08IGrLDOxTOfIe15ZdU0nAVsvFcBiAPe3PeHi_aQ.webp)
+
+
 실제로 PV 자체에 대한 정보는 알 필요 없다
 처럼 뒤에 쿠버네티스 플랫폼 - Storage 제공자 측에서 관리할 영역이지, 해당 배포파일에서 관리해야할건 또 아니라는 이야기이기도 합니다.
 
