@@ -168,7 +168,7 @@ EFS는 그중에서 NFS 기반으로 이루어진 Multi-AZ를 지원하는 파�
 쿠버네티스 관점에서 위의 EBS와 다른점은, 내부적으로 ReadWriteMany 형태로 선언해서 여러개의 Pod에 마운트 할 수 있다는 이야기기도 합니다.
 
 
-![multi-pod-sample](https://github.com/kubernetes-sigs/aws-efs-csi-driver/tree/master/examples/kubernetes/multiple_pods)
+[multi-pod-sample](https://github.com/kubernetes-sigs/aws-efs-csi-driver/tree/master/examples/kubernetes/multiple_pods)
 
 aws efs csi driver 에서 제공되는 example 코드를 기준으로 살펴보겠습니다.
 
