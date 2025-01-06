@@ -4,6 +4,6 @@
 - [Kubernetes란](chapter2/About_Kubernetes.md)
 - [Terrform으로 EKS 생성하기](chapter3/EKS_Terraform.md)
 - [Kuberentes 기본 리소스](chapter4/Kuberentes_Resources.md)
-- [Kubernetes & EKS 네트워크](chapter5/EKS_Network.md)
-- [Kuberentes & EKS 스토리지](chapter6/EKS_Storage.md)
+- [Network On Kubernetes](chapter5/EKS_Network.md)
+- [Storage On Kubernetes](chapter6/EKS_Storage.md)
 
