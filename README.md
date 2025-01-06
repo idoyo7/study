@@ -1,22 +1,22 @@
 # Introduction
-기본적인 쿠버네티스 구성부터, 쿠버네티스 위에 올려서 구성 가능한
-인프라, 플랫폼 및 쿠버네티스 위에서 구현하는 서비스들(오픈소스)과 그를 이용한 파이프라인 (Gitops 등) 구성 등을 해볼 예정입니다
+
+기본적인 쿠버네티스 구성부터, 쿠버네티스 위에 올려서 구성 가능한 인프라, 플랫폼 및 쿠버네티스 위에서 구현하는 서비스들(오픈소스)과 그를 이용한 파이프라인(GitOps 등) 구성 등을 해볼 예정입니다.
 
 ## 쿠버네티스 강의안 (EKS 중심)
 
-| **단원** | **주제** |
-| --- | --- |
-| **Chapter 1** | 왜 컨테이너와 쿠버네티스인가? |
-| **Chapter 2** | 쿠버네티스 아키텍처 이해 |
-| **Chapter 3** | EKS 클러스터 구성 (Terraform) |
-| **Chapter 4** | 쿠버네티스 기본 리소스 |
-| **Chapter 5** | 네트워킹과 Ingress 관리 |
-| **Chapter 6** | 스토리지와 데이터 관리 |
-| **Chapter 7** | 애플리케이션 스케일링과 자원 관리 |
-| **Chapter 8** | Helm을 활용한 애플리케이션 배포 |
-| **Chapter 9** | 오픈소스를 활용한 시너지 |
-| **Chapter 10** | Kubernetes 기반 CI/CD |
-| **Chapter 11** | 종합 실습과 프로젝트 |
+| **단원**        | **주제**                       |
+|----------------|-------------------------------|
+| **Chapter 1**  | 왜 컨테이너와 쿠버네티스인가?        |
+| **Chapter 2**  | 쿠버네티스 아키텍처 이해            |
+| **Chapter 3**  | EKS 클러스터 구성 (Terraform)  |
+| **Chapter 4**  | 쿠버네티스 기본 리소스             |
+| **Chapter 5**  | 네트워킹과 Ingress 관리         |
+| **Chapter 6**  | 스토리지와 데이터 관리            |
+| **Chapter 7**  | 애플리케이션 스케일링과 자원 관리     |
+| **Chapter 8**  | Helm을 활용한 애플리케이션 배포     |
+| **Chapter 9**  | 오픈소스를 활용한 시너지          |
+| **Chapter 10** | Kubernetes 기반 CI/CD        |
+| **Chapter 11** | 종합 실습과 프로젝트            |
 
 ---
 
@@ -59,24 +59,16 @@
 
 ---
 
-### **Chapter 5: Helm을 활용한 애플리케이션 배포**
+### **Chapter 5: 네트워킹과 Ingress 관리**
 
-- Helm 기본 개념:
-  - Chart 구조와 Release 관리.
-- Helm 활용한 애플리케이션 배포 및 업그레이드.
-- **실습**: 간단한 Helm Chart 작성 및 배포, Rollback 실습.
-
----
-
-### **Chapter 6: 애플리케이션 스케일링과 자원 관리**
-
-- HPA를 통한 수평 스케일링.
-- 리소스 제한 설정 및 QoS Class.
-- **실습**: 리소스 제한 설정 및 HPA 적용.
+- Pod-to-Pod, Service-to-Service 통신.
+- VPC CNI Plugin과 네트워크 정책.
+- Ingress Controller 설정.
+- **실습**: Ingress를 통한 외부 트래픽 관리.
 
 ---
 
-### **Chapter 7: 스토리지와 데이터 관리**
+### **Chapter 6: 스토리지와 데이터 관리**
 
 - PV와 PVC 개념 이해.
 - EBS, EFS, S3와의 통합.
@@ -84,12 +76,20 @@
 
 ---
 
-### **Chapter 8: 네트워킹과 Ingress 관리**
+### **Chapter 7: 애플리케이션 스케일링과 자원 관리**
 
-- Pod-to-Pod, Service-to-Service 통신.
-- VPC CNI Plugin과 네트워크 정책.
-- Ingress Controller 설정.
-- **실습**: Ingress를 통한 외부 트래픽 관리.
+- HPA를 통한 수평 스케일링.
+- 리소스 제한 설정 및 QoS Class.
+- **실습**: 리소스 제한 설정 및 HPA 적용.
+
+---
+
+### **Chapter 8: Helm을 활용한 애플리케이션 배포**
+
+- Helm 기본 개념:
+  - Chart 구조와 Release 관리.
+- Helm 활용한 애플리케이션 배포 및 업그레이드.
+- **실습**: 간단한 Helm Chart 작성 및 배포, Rollback 실습.
 
 ---
 
@@ -117,3 +117,4 @@
 - **실습**: 종합 프로젝트 - 서비스 모델링, 운영 환경 구축, 문제 해결.
 
 ---
+
