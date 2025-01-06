@@ -57,7 +57,9 @@ https://github.com/containernetworking/cni
 ClusterIP는 service를 통해 내부 endpoint로 부하분산을 해줍니다.
 외부노출은 없지만 core-dns 등을 통한 내부통신을 위한 서비스이거나,
 
-(thanos query의 endpoint로 내부 dns 등록된거 사진)
+![image.png](images/image.png)
+
+이런 내부 dns 구성을 통해 외부노출 없는 어플리케이션 간 dns 기반의 연결도 가능합니다.
 
 ingress controller같은 서비스를 통해 외부 노출이 가능합니다.
 
@@ -113,9 +115,13 @@ graph LR
 
 커피고래님의 블로그에 잘 번역되어있는 수준 높은 게시글이 있으니 추천드립니다.
 [패킷의삶1](]https://coffeewhale.com/packet-network1)
+
 [패킷의삶2](https://coffeewhale.com/packet-network2)
+
 [패킷의삶3](https://coffeewhale.com/packet-network3)
+
 [패킷의삶4](https://coffeewhale.com/packet-network4)
+
 
 
 ### LoadBalancer
@@ -189,7 +195,11 @@ IP 모드
 점점 단순하게 네트워크 구조를 가져갈수록 빠르고 안전한 구조의 설계가 가능하죠
 
 #### ALB 생성하기
+
 쿠버네티스의 정책인 `AdmissionControl`을 이용하여 
+
+![image.png](images/image2.png)
+
 Ingress 생성 -> LB 생성 호출 -> 쿠버네티스의 리소스 - AWS ALB에 연결
 순서대로  연결이 됩니다.
 

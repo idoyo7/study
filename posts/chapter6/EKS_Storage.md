@@ -145,14 +145,14 @@ spec:
 
 위에서 생성한 ebs-claim이라는 pvc의 정보에 맞는 볼륨을 마운트하면 된다는 의미인데, 실제로 생성된 pv 정보를 직접 어플리케이션 배포 코드에서 다루지 않고있습니다.
 
-[image](https://i.namu.wiki/i/XDVrtVbJXtd059R9AP5CZlgU20ADGGN5tgzuT30Fj393vb08IGrLDOxTOfIe15ZdU0nAVsvFcBiAPe3PeHi_aQ.webp)
+![image](https://i.namu.wiki/i/XDVrtVbJXtd059R9AP5CZlgU20ADGGN5tgzuT30Fj393vb08IGrLDOxTOfIe15ZdU0nAVsvFcBiAPe3PeHi_aQ.webp)
 실제로 PV 자체에 대한 정보는 알 필요 없다
 처럼 뒤에 쿠버네티스 플랫폼 - Storage 제공자 측에서 관리할 영역이지, 해당 배포파일에서 관리해야할건 또 아니라는 이야기이기도 합니다.
 
 ### EFS
 
 efs 시스템은 AZ구분이 없는 스토리지로, 다중마운트를 제공하는 “공용 파일시스템” 에 적합한 종류의 파일시스템입니다.
-[image](https://apimin.montkim.com/cdn/blog/images/AEWS/week3/EKS_Storage/Untitled16.png)
+![image](https://apimin.montkim.com/cdn/blog/images/AEWS/week3/EKS_Storage/Untitled16.png)
 
 Block 자체에 대한것이 아닌, 매니지드  File System에 대한 이야기이니, 동시성이나 확장에 대한 규약은 기본적으로 AWS 에서 제공하는 최대치와 동일합니다.
 
@@ -162,7 +162,7 @@ EFS는 그중에서 NFS 기반으로 이루어진 Multi-AZ를 지원하는 파�
 쿠버네티스 관점에서 위의 EBS와 다른점은, 내부적으로 ReadWriteMany 형태로 선언해서 여러개의 Pod에 마운트 할 수 있다는 이야기기도 합니다.
 
 
-[multi-pod-sample](https://github.com/kubernetes-sigs/aws-efs-csi-driver/tree/master/examples/kubernetes/multiple_pods)
+![multi-pod-sample](https://github.com/kubernetes-sigs/aws-efs-csi-driver/tree/master/examples/kubernetes/multiple_pods)
 
 aws efs csi driver 에서 제공되는 example 코드를 기준으로 살펴보겠습니다.
 
@@ -229,7 +229,7 @@ volumeHandle 부분에 위에서 AWS CLI로 획득한 EFS이름을 넣으면 해
 해당 Git에 있는 pod 두개를 배포해봅니다.
 두 pod는 동일한 pvc (pv)를 바라보고있지만, ReadWriteMany가 가능한 pod이기때문에, 생성이 완료됩니다.
 
-[image](https://apimin.montkim.com/cdn/blog/images/AEWS/week3/EKS_Storage/Untitled17.png)
+![image](https://apimin.montkim.com/cdn/blog/images/AEWS/week3/EKS_Storage/Untitled17.png)
 
 볼륨 사이즈가 8.0E 로 잡히긴하는데, 
 스토리지의 크기를 별도로 할당하지 않았기때문에 뜨는 값입니다만, 실제로 저 볼륨을 다 채울수 있을리는 없겠죠...
