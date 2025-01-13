@@ -4,13 +4,11 @@
     "website": "styles/dark-mode.css"
   },
   "scripts": ["scripts/dark-mode.js"],
-  "plugins": ["customize-footer", "toc"],
+  "plugins": ["customize-footer"],
   "pluginsConfig": {
     "customize-footer": {
       "footer": ""
-    },
-    "toc": {
-      "includeLevel": [1, 2, 3]
     }
   }
 }
+
