@@ -122,7 +122,7 @@ Kubernetes **`Ingress`**을(를) 생성할 때 AWS Load Balancer Controller은
 
 **AWS LoadBalancer의 동작방식**
 
-![https://montkim.com/images/AEWS/week2/EKS_Networking/Untitled21.png](https://montkim.com/images/AEWS/week2/EKS_Networking/Untitled21.png)
+![Untitled21.png](https://apimin.montkim.com/cdn/blog/images/AEWS/week2/EKS_Networking/Untitled21.png)
 
 [https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/how-it-works/](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/how-it-works/)
 
