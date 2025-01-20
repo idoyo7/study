@@ -34,18 +34,17 @@
 
 ## 각 구성요소 설명 및 설치 진행
 
+### Package prerequisite
+Unzip, gpg 
+해당 게시글 실습에 앞서 필요한 Package 설치를 진행합니다.
+```
+sudo apt update && sudo apt install -y unzip gpg
+```
+
+    
 ### AWS CLI
 
 EKS 기반의 시스템을 구성하기위해 AWS 계정에 접근가능하게 설정이 되어있어야합니다.
-
-패키지 unzip 이 먼저 설치되어있는지 확인 후 진행합니다.
-
-- unzip 패키지 확인
-    
-    ```bash
-    sudo apt update && sudo apt install unzip
-    ```
-    
 
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -85,12 +84,6 @@ Terraform 을 이용하여 사전에 정의해둔 인프라를 배포하기위�
 [https://developer.hashicorp.com/terraform/install](https://developer.hashicorp.com/terraform/install)
 
 해당 링크에있는 installation guide를 그대로 따라하여 설치를 진행합니다.
-
-- Prerequsite packagates
-    
-    ```bash
-    sudo apt update && sudo apt install -y gpg
-    ```
     
 
 ```bash
@@ -118,7 +111,7 @@ AWS에 배포된 정보들과 EKS 정보들을 짬뽕하여 사용가능한 cli�
  
 
 ```bash
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C ~
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C 
 sudo cp ~/eksctl /usr/local/bin
 
 ```
