@@ -30,60 +30,44 @@ PVC를 활용한 Kubernetes 공식 홈페이지 도큐먼트 기준
 
 - 공식 DOC 기준
     
-    https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
+[mysql-tutorial]https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
     
-    MySQL와 연동한 워드프레스를 배포해보겠습니다.
+MySQL와 연동한 워드프레스를 배포해보겠습니다.
     
-    ```jsx
-    wget https://raw.githubusercontent.com/kubernetes/website/main/content/ko/examples/application/wordpress/wordpress-deployment.yaml
-    wget https://raw.githubusercontent.com/kubernets/website/main/content/ko/examples/application/wordpress/mysql-deployment.yaml
-    ```
+```jsx
+wget https://raw.githubusercontent.com/kubernetes/website/main/content/ko/examples/application/wordpress/wordpress-deployment.yaml
+```
     
-    명령어로 배포에 필요한 코드들을 받아줍니다
+명령어로 배포에 필요한 코드들을 받아줍니다
     
-    ```jsx
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: mysql-pv-claim
-      labels:
-        app: wordpress
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 20Gi
-      storageClassName: gp3
+```jsx
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: gp3
     
-    ```
+```
     
-    ```jsx
     
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: wp-pv-claim
-      labels:
-        app: wordpress
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 20Gi
-      storageClassName: gp3
-    ```
-    
-    wordpress 와 mysql에 필요한 pvc들에  storageclass로 아까 생성한 GP3을 맵핑해 볼륨을 생성해줍니다
+wordpress 와 mysql에 필요한 pvc들에  storageclass로 아까 생성한 GP3을 맵핑해 볼륨을 생성해줍니다
 
     
-    ![image](https://apimin.montkim.com/cdn/blog/images/helm/Untitled.png)
-    정상적으로 gp3 볼륨의 pv가 생성된것을 확인할수있습니다.
+![image](https://apimin.montkim.com/cdn/blog/images/helm/Untitled.png)
+
+정상적으로 gp3 볼륨의 pv가 생성된것을 확인할수있습니다.
     
-    ![image](https://apimin.montkim.com/cdn/blog/images/helm/Untitled1.png)
+![image](https://apimin.montkim.com/cdn/blog/images/helm/Untitled1.png)
     
-    사이트 생성에 완료했습니다.
+사이트 생성에 완료했습니다.
     
 
 일반 PVC를 이용한 배포 예제입니다.
@@ -109,7 +93,7 @@ HELM으로 배포할 wordpress는 별도의 namespace : wordpress에서 시작�
 
 1안. 그냥 설치하기
 
-```jsx
+```
 helm install myblog bitnami/wordpress -n wordpress
 ```
 
@@ -126,17 +110,17 @@ helm install myblog \
 
 추가 옵션
 
-```jsx
+```
 --set replicaCount=2 --set service.type=NodePort
 ```
 
 → values.yaml로 변환하기
 
-```jsx
+```
 global:
-  storageclass: "nfs-client"
+  storageclass: "gp2"
 persistence:
-  storageclass: "nfs-client"
+  storageclass: "gp2"
 wordpressUsername : "admin"
 wordpressPassword : "password"
 wordpressBlogName : "PKOS BLOG"
@@ -150,7 +134,7 @@ mariadb:
     password: wp_password
   persistence:
     enabled: true
-    storageClass: "nfs-client"
+    storageClass: "gp2"
     accessModes:
       - ReadWriteOnce
       size: 10Gi
@@ -159,21 +143,21 @@ service :
   
 ```
 
-```jsx
+```
 helm install myblog bitnami/wordpress -n wordpress --version 22.4.18
 
 helm upgrade --install myblog bitnami/wordpress -n wordpress --version 22.4.18 -f cvalues.yaml
 ```
 
-https://artifacthub.io/packages/helm/bitnami/wordpress?modal=values
+[value_on_chart](https://artifacthub.io/packages/helm/bitnami/wordpress?modal=values)
 
-[https://github.com/bitnami/charts/blob/main/bitnami/wordpress/values.yaml](https://github.com/bitnami/charts/blob/main/bitnami/wordpress/values.yaml)
+[values.yaml](https://github.com/bitnami/charts/blob/main/bitnami/wordpress/values.yaml)
 
 소소한 팁:
 
 helm install 로 진행할경우, 업그레이드 진행 등이 조금 불편하다.
 
-```jsx
+```
 helm upgrade --install ~
 ```
 
@@ -181,39 +165,8 @@ helm upgrade --install ~
 
 삭제
 
-```jsx
-helm uninstall myblog -n wordpress
 ```
-
-```jsx
-global:
-  storageclass: "nfs-client"
-persistence:
-  storageclass: "nfs-client"
-wordpressUsername : "admin"
-wordpressPassword : "password"
-wordpressBlogName : "PKOS BLOG"
-replicaCount : 2
-mariadb:
-  enabled: true
-  auth:
-    rootPassword: rootpassword
-    database: wordpress_db
-    username: wp_user
-    password: wp_password
-  persistence:
-    enabled: true
-    storageClass: "nfs-client"
-    accessModes:
-      - ReadWriteOnce
-      size: 10Gi
-service : 
-  type : NodePort
-  
-
-ingress:
-  enabled: true
-  
+helm uninstall myblog -n wordpress
 ```
 
 이런 설정을 갖고있는 file configuration을 이용하여 배포가 가능합니다.
@@ -226,13 +179,13 @@ service의 옵션으로 내부동작에 최적화되게끔 수정하는 코드�
 
 별도로 마스킹해야할 정보가 있지 않다면, 
 
-```bash
+```
 helm install ~ -f cvalues.yaml
 ```
 
 같은 형태로 설치가 가능하지만, 별도로 set value 를 이용해 설정이 가능합니다.
 
-```markdown
+```
 helm upgrade --install memos -n app . \
   -f cvalues.yaml \
   --set ingress.annotations."alb\.ingress\.kubernetes\.io/certificate-arn"="$MY_CERT_ARN" \
