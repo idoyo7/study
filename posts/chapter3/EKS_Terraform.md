@@ -65,17 +65,17 @@ terraform apply -auto-approve
 
 ```jsx
 # State 파일 확인
-**terraform state list
-~~~**
+terraform state list
+~~~
 # 배포된 정보 확인
-**terraform console**
+terraform console
 -----------------
 data.aws_caller_identity.current
-**data.aws_caller_identity.current.arn**
+data.aws_caller_identity.current.arn
 data.aws_eks_cluster.cluster
-**data.aws_eks_cluster.cluster.name**
-**data.aws_eks_cluster.cluster.version
-data.aws_eks_cluster.cluster.access_config**
+data.aws_eks_cluster.cluster.name
+data.aws_eks_cluster.cluster.version
+data.aws_eks_cluster.cluster.access_config
 data.aws_eks_cluster_auth.cluster
 kubernetes_service_account.aws_lb_controller
 -----------------
@@ -83,7 +83,7 @@ terraform state show ...
 
 # 자세한 정보들
 cat terraform.tfstate | jq 
-**more terraform.tfstate**
+more terraform.tfstate
 ```
 
 ### Verify
