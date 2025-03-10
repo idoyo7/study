@@ -7,5 +7,6 @@
 - [Network On Kubernetes](chapter5/EKS_Network.md)
 - [Storage On Kubernetes](chapter6/EKS_Storage.md)
 - [환경 구성을 위한 초석](chapter7/provisioning.md)
+- [Helm 깎기](chapter8/helm.md)
 
 
