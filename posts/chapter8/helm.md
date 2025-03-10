@@ -33,8 +33,8 @@ PVC를 활용한 Kubernetes 공식 홈페이지 도큐먼트 기준
 [mysql-tutorial]https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
     
 MySQL와 연동한 워드프레스를 배포해보겠습니다.
-    
-```jsx
+
+```
 wget https://raw.githubusercontent.com/kubernetes/website/main/content/ko/examples/application/wordpress/wordpress-deployment.yaml
 ```
     
