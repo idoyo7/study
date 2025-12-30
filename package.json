@@ -1,0 +1,9 @@
+{
+  "name": "study-gitbook",
+  "version": "1.0.0",
+  "description": "Kubernetes GitBook",
+  "dependencies": {
+    "gitbook-plugin-customize-footer": "^1.0.2"
+  }
+}
+
