@@ -41,6 +41,7 @@ jobs:
           repository: idoyo7/montstrap-manifest
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
           path: montstrap-manifest
+          persist-credentials: false
 
       - name: Update manifest files
         if: success()
