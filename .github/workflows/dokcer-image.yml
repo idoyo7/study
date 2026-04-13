@@ -34,27 +34,28 @@ jobs:
           docker build -t "${{ secrets.DOCKER_USERNAME }}/my-gitbook:${{ env.SHORT_SHA }}" .
           docker push "${{ secrets.DOCKER_USERNAME }}/my-gitbook:${{ env.SHORT_SHA }}"
 
-      - name: Checkout 'study-manifests' repository
-        if: success() # 이전 단계가 성공한 경우에만 실행
+      - name: Checkout 'montstrap-manifest' repository
+        if: success()
         uses: actions/checkout@v3
         with:
-          repository: idoyo7/study-manifests
+          repository: idoyo7/montstrap-manifest
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
-          path: study-manifests
+          path: montstrap-manifest
 
       - name: Update manifest files
-        if: success() # 이전 단계가 성공한 경우에만 실행
+        if: success()
         run: |
-          cd study-manifests
-          sed -i 's|image:.*|image: art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}|' deployment.yaml
+          cd montstrap-manifest
+          sed -i 's|image:.*|image: art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}|' prod/study/deployment.yaml
+          sed -i 's|image:.*|image: art.montkim.com/study/my-gitbook:${{ env.SHORT_SHA }}|' stage/study/deployment.yaml
 
-      - name: Commit and push changes to 'study-manifests'
-        if: success() # 이전 단계가 성공한 경우에만 실행
+      - name: Commit and push changes to 'montstrap-manifest'
+        if: success()
         run: |
-          cd study-manifests
+          cd montstrap-manifest
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git add deployment.yaml
-          git commit -m "Update image tag to ${{ env.SHORT_SHA }}"
+          git add prod/study/deployment.yaml stage/study/deployment.yaml
+          git commit -m "Update study image tag to ${{ env.SHORT_SHA }}"
           git push
 
