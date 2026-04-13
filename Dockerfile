@@ -1,5 +1,5 @@
 # 1단계: 빌드 스테이지
-FROM node:18.20.8-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ COPY . .
 RUN honkit build
 
 # 2단계: 최종 실행 스테이지
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
