@@ -53,6 +53,7 @@ jobs:
         if: success()
         run: |
           cd montstrap-manifest
+          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/idoyo7/montstrap-manifest.git
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git add prod/study/deployment.yaml stage/study/deployment.yaml
